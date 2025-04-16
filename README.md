@@ -34,8 +34,9 @@ git clone https://github.com/47codemonkey/todo-app.git
 cd <your-repo>
 
 2. Install dependencies:
-   npm install
 
+npm install
+or
 yarn
 
 3. Create a .env file in the root directory (same level as package.json) and add your MongoDB connection string:
@@ -46,7 +47,7 @@ For example, MONGODB_URI="mongodb+srv://<user>:<password>@cluster0.mongodb.net/<
 4. Run the development server:
 
 npm run dev
-
+or
 yarn dev
 
 Open http://localhost:3000 to view it in the browser.
@@ -56,13 +57,13 @@ Open http://localhost:3000 to view it in the browser.
 1. Build the project:
 
 npm run build
-
+or
 yarn build
 
 2. Start in production mode:
 
 npm run start
-
+or
 yarn start
 
 Your app will be served at http://localhost:3000.
