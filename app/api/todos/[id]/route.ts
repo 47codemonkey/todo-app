@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import TodoModel from '@/models/todoModel';
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, context: unknown) {
   const connected = await connectDB();
   if (!connected) {
     return NextResponse.json(
@@ -11,9 +11,10 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     );
   }
   try {
-    const { id } = await Promise.resolve(params);
+    const { id } = await (context as { params: { id: string } }).params;
     const body = await request.json();
     const { title, description, completed } = body;
+
     const updatedTodo = await TodoModel.findByIdAndUpdate(
       id,
       { title, description, completed },
@@ -35,7 +36,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, context: unknown) {
   const connected = await connectDB();
   if (!connected) {
     return NextResponse.json(
@@ -44,7 +45,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     );
   }
   try {
-    const { id } = await Promise.resolve(params);
+    const { id } = await (context as { params: { id: string } }).params;
     const deletedTodo = await TodoModel.findByIdAndDelete(id);
     if (!deletedTodo) {
       return NextResponse.json({ success: false, message: 'Todo not found' }, { status: 404 });
