@@ -11,14 +11,14 @@ Filter todos – easily search and narrow down your list by keywords.
 
 # Technologies Used
 
-Next.js – React framework for server-side rendering and file-based routing
-TypeScript – Strongly typed JavaScript
-Tailwind CSS – Utility-first CSS framework
-MongoDB Atlas – Cloud-hosted MongoDB database
-Mongoose – ODM library for MongoDB
-React Query – Data fetching and state management library
-ESLint & Prettier – Linting and code formatting
-Vercel – Deployment platform (optional but recommended)
+Next.js,
+TypeScript,
+Tailwind CSS,
+MongoDB Atlas,
+Mongoose,
+React Query,
+ESLint & Prettier,
+Vercel
 
 # Prerequisites
 
